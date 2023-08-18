@@ -29,7 +29,7 @@ const remove = catchError(async (req, res) => {
 
 const update = catchError(async (req, res) => {
   const { id } = req.params;
-  // const userId = req.user.id
+  const userId = req.user.id
   const { quantity } = req.body
   const result = await Cart.update(
     { quantity },
