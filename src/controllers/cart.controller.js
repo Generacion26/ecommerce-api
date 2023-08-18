@@ -3,7 +3,22 @@ const Cart = require('../models/Cart');
 
 const getAll = catchError(async (req, res) => {
   const userId = req.user.id
-  const results = await Cart.findAll({ where: { userId } });
+  const results = await Cart.findAll({
+    where: { userId },
+    include: [
+      {
+        model: Product,
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+        include: [
+          {
+            model: Category,
+            attributes: ['name']
+          },
+        ]
+
+      }
+    ]
+  });
   return res.json(results);
 });
 
