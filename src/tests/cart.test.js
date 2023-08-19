@@ -52,8 +52,7 @@ test("POST -> 'URL_BASE', should return status code 201 and res.body.quantity ==
   expect(res.status).toBe(201)
   expect(res.body).toBeDefined()
   expect(res.body.quantity).toBe(bodyCart.quantity)
-  expect(res.body.id).toBe(userId)
-
+  expect(res.body.userId).toBe(userId)
 })
 
 test("GET -> 'URL_BASE',should return status code 200 and res.body.length === 1", async () => {
