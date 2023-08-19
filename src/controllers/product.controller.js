@@ -3,7 +3,14 @@ const Product = require('../models/Product');
 const Category = require('../models/Category');
 
 const getAll = catchError(async (req, res) => {
-  const results = await Product.findAll({ include: [Category] });
+
+  const { category } = req.query
+
+  const results = await Product.findAll({
+    include: [Category],
+    where: { categoryId: category }
+  });
+
   return res.json(results);
 });
 
