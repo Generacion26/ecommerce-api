@@ -6,6 +6,14 @@ const getAll = catchError(async (req, res) => {
   return res.json(result)
 });
 
+const create = catchError(async (req, res) => {
+  const { filename } = req.file
+
+  return res.sendStatus(201)
+
+})
+
 module.exports = {
-  getAll
+  getAll,
+  create
 }
