@@ -68,6 +68,7 @@ test("GET -> 'URL_BASE?category=id', should resturn status code 200 and res.body
   const res = await request(app) // /api/v1/products?category=1
     .get(`${URL_BASE}?category=${category.id}`)
 
+
   expect(res.status).toBe(200)
   expect(res.body).toBeDefined()
   expect(res.body).toHaveLength(1)
