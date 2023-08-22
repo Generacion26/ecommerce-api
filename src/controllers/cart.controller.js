@@ -30,6 +30,7 @@ const create = catchError(async (req, res) => {
   const body = { productId, quantity, userId }
   const result = await Cart.create(body);
   return res.status(201).json(result);
+
 });
 
 const remove = catchError(async (req, res) => {
