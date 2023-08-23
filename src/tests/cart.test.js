@@ -59,6 +59,7 @@ test("GET -> 'URL_BASE',should return status code 200 and res.body.length === 1"
   const res = await request(app)
     .get(URL_BASE)
     .set("Authorization", `Bearer ${TOKEN}`)
+  console.log(res.body);
 
   expect(res.status).toBe(200)
   expect(res.body).toBeDefined()
